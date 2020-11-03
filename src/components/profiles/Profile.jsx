@@ -10,13 +10,9 @@ const Profile = () => {
 
   if (loading) {
     return <h1>Loading...</h1>;
-  }
 
-  if (profile === {} && repos === []) {
-    return <p>Please Make a Search</p>;
-  } 
-  
-  else {
+  } else if (profile.please !== 'search') {
+    console.log(profile);
     const repoElements = repos.map(repo => (
       <li key={repo.name}>
         <p>Name: {repo.name}</p>
@@ -36,6 +32,9 @@ const Profile = () => {
         </ul>
       </>
     );
+
+  } else {
+    return <p>Please Make a Search</p>;
   }
 };
 
