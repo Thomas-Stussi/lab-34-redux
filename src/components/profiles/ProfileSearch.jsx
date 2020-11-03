@@ -1,16 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, setLoading, setSearch } from '../../actions/githubActions';
+import { fetchUser, setSearch } from '../../actions/githubActions';
 
 const ProfileSearch = () => {
   const dispatch = useDispatch();
   const userName = useSelector(state => state.search);
 
   const handleSubmit = () => {
-    dispatch(setLoading(true));
     dispatch(fetchUser(userName));
   };
-  
+
   const handleChange = ({ target }) => {
     dispatch(setSearch(target.value));
   };

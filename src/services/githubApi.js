@@ -1,20 +1,20 @@
 /* eslint-disable max-len */
 export const getUser = async(userName) => {
-  const userProfile = await fetch(`https://api.github.com/users/${userName}`)
+  const profile = await fetch(`https://api.github.com/users/${userName}`)
     .then(res => res.json())
-    .then(json => json.map(profile => ({
-      name: profile.name,
-      url: profile.html_url,
-      followers: profile.followers,
-      following: profile.following
-    })));
+    .then(json => ({
+      name: json.name,
+      url: json.html_url,
+      followers: json.followers,
+      following: json.following
+    }));
 
-  const userRepos = await fetch(`https://api.github.com/users/${userName}/repos`)
+  const repos = await fetch(`https://api.github.com/users/${userName}/repos`)
     .then(res => res.json())
     .then(json => json.map(repo => ({
       name: repo.name,
       url: repo.html_url
     })));
 
-  return { userProfile, userRepos };
+  return { profile, repos };
 };

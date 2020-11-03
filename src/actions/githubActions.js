@@ -19,6 +19,7 @@ export const setSearch = search => ({
 });
 
 export const fetchUser = (userName) => dispatch => {
+  dispatch(setLoading(true));
   getUser(userName)
     .then(user => {
       dispatch(setUser(user));

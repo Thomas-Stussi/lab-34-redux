@@ -2,7 +2,8 @@
 import { SET_USER, SET_LOADING, SET_SEARCH } from '../actions/githubActions';
 
 const initialState = {
-  user: {},
+  profile: {},
+  repos: [],
   search: '',
   loading: false,
   error: null,
@@ -12,7 +13,7 @@ export default function reducer(state = initialState, action) {
   // eslint-disable-next-line keyword-spacing
   switch (action.type) {
     case SET_USER:
-      return { ...state, user: action.payload };
+      return { ...state, profile: action.payload.profile, repos: action.payload.repos };
     case SET_LOADING:
       return { ...state, loading: action.payload };
     case SET_SEARCH:
