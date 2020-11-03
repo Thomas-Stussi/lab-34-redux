@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+  // eslint-disable-next-line keyword-spacing
   switch (action.type) {
     case SET_REPOS:
       return { ...state, repos: action.payload };
