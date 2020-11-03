@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import { SET_USER, SET_LOADING, SET_SEARCH } from '../actions/githubActions';
 
 const initialState = {
   user: {},
   search: '',
   loading: false,
-  error: null
+  error: null,
 };
 
 export default function reducer(state = initialState, action) {
