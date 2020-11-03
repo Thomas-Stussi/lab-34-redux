@@ -1,8 +1,9 @@
-import { SET_USER, SET_LOADING } from '../actions/githubActions';
+import { SET_USER, SET_LOADING, SET_SEARCH } from '../actions/githubActions';
 
 const initialState = {
   user: {},
-  loading: true,
+  search: '',
+  loading: false,
   error: null
 };
 
@@ -13,6 +14,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload };
+    case SET_SEARCH:
+      return { ...state, search: action.payload };
     default:
       return state;
   }

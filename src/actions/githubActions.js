@@ -12,6 +12,12 @@ export const setLoading = loading => ({
   payload: loading
 });
 
+export const SET_SEARCH = 'SET_SEARCH';
+export const setSearch = search => ({
+  type: SET_SEARCH,
+  payload: search
+});
+
 export const fetchUser = (userName) => dispatch => {
   getUser(userName)
     .then(user => {
