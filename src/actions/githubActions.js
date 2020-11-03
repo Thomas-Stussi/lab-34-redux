@@ -1,9 +1,9 @@
-import { getRepos } from '../services/githubApi';
+import { getUser } from '../services/githubApi';
 
-export const SET_REPOS = 'SET_REPOS';
-export const setRepos = repos => ({
-  type: SET_REPOS,
-  payload: repos
+export const SET_USER = 'SET_USER';
+export const setUser = user => ({
+  type: SET_USER,
+  payload: user
 });
 
 export const SET_LOADING = 'SET_LOADING';
@@ -12,10 +12,10 @@ export const setLoading = loading => ({
   payload: loading
 });
 
-export const fetchRepos = () => dispatch => {
-  getRepos()
-    .then(repos => {
-      dispatch(setRepos(repos));
+export const fetchUser = (userName) => dispatch => {
+  getUser(userName)
+    .then(user => {
+      dispatch(setUser(user));
     })
     .finally(() => dispatch(setLoading(false)));
 };

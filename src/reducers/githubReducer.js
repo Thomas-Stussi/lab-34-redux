@@ -1,7 +1,7 @@
-import { SET_REPOS, SET_LOADING } from '../actions/githubActions';
+import { SET_USER, SET_LOADING } from '../actions/githubActions';
 
 const initialState = {
-  repos: [],
+  user: {},
   loading: true,
   error: null
 };
@@ -9,8 +9,8 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   // eslint-disable-next-line keyword-spacing
   switch (action.type) {
-    case SET_REPOS:
-      return { ...state, repos: action.payload };
+    case SET_USER:
+      return { ...state, user: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload };
     default:
