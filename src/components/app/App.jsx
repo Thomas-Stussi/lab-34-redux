@@ -1,5 +1,12 @@
 import React from 'react';
+import Profile from '../profiles/Profile';
+import ProfileSearch from '../profiles/ProfileSearch';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <ProfileSearch />
+      <Profile />
+    </>
+  );
 }

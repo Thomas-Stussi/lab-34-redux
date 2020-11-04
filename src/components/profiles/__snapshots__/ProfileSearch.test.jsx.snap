@@ -1,13 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders App 1`] = `
+exports[`ProfileSearch component renders ProfileSearch 1`] = `
 <DocumentFragment>
   <input />
   <button>
     Search Github Profiles
   </button>
-  <p>
-    Please Make a Search
-  </p>
 </DocumentFragment>
 `;
