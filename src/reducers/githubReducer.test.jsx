@@ -1,8 +1,8 @@
-import { setUser } from '../actions/githubActions';
+import { setLoading, setSearch, setUser } from '../actions/githubActions';
 import reducer from './githubReducer';
 
 describe('githubReducer', () => {
-  it('handles the SET_USERS action', () => {
+  it('handles the SET_USER action', () => {
     const state = {
       profile: { please: 'search' },
       repos: [],
@@ -25,6 +25,50 @@ describe('githubReducer', () => {
       search: '',
       loading: false,
       error: null
+    });
+  });
+
+  it('handles the SET_LOADING action', () => {
+    const state = {
+      profile: { please: 'search' },
+      repos: [],
+      search: '',
+      loading: false,
+      error: null,
+    };
+
+    const action = setLoading(true);
+
+    const newState = reducer(state, action);
+
+    expect(newState).toEqual({
+      profile: { please: 'search' },
+      repos: [],
+      search: '',
+      loading: true,
+      error: null,
+    });
+  });
+
+  it('handles the SET_SEARCH action', () => {
+    const state = {
+      profile: { please: 'search' },
+      repos: [],
+      search: '',
+      loading: false,
+      error: null,
+    };
+
+    const action = setSearch('test search');
+
+    const newState = reducer(state, action);
+
+    expect(newState).toEqual({
+      profile: { please: 'search' },
+      repos: [],
+      search: 'test search',
+      loading: false,
+      error: null,
     });
   });
 });
